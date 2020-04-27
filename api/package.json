@@ -1,0 +1,26 @@
+{
+  "name": "ciascode-api",
+  "version": "0.0.1",
+  "description": "Continuous Integration as Code",
+  "main": "src/app.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@gitlab.com/gary.ascuy/ci-as-code-base.git"
+  },
+  "keywords": [
+    "api",
+    "ci",
+    "cd",
+    "backend",
+    "express"
+  ],
+  "author": "gary.ascuy@gmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://gitlab.com/gary.ascuy/ci-as-code-base/issues"
+  },
+  "homepage": "https://gitlab.com/gary.ascuy/ci-as-code-base#readme"
+}
