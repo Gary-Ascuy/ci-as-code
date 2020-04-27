@@ -1,5 +1,5 @@
-const { equal, deepEqual } = require('assert')
-const { getId, allUsers, addUser, deleteUser } = require('../../src/services/users')
+import { equal, deepEqual } from 'assert'
+import { getId, allUsers, addUser, deleteUser } from '../../src/services/users'
 
 describe('services/users.js', () => {
   describe('.getId()', () => {
