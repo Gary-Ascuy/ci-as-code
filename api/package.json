@@ -27,6 +27,7 @@
   "homepage": "https://gitlab.com/gary.ascuy/ci-as-code-base#readme",
   "dependencies": {
     "express": "^4.17.1",
-    "nconf": "^0.10.0"
+    "nconf": "^0.10.0",
+    "winston": "^3.2.1"
   }
 }

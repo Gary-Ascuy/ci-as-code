@@ -1,15 +1,19 @@
-import { get } from './settings'
 import express from 'express'
 
+import { get } from './settings'
+import { logger } from './logger'
+
 export async function main() {
-  const { host, port } = get('server')
-  const app = express();
+  const app = express()
 
   app.get('/', (req, res) => {
-      res.send('An alligator approaches!');
+    res.send('An alligator approaches!');
   })
 
-  app.listen(+port, host, () => console.log('API listening on port 3000!'))
+  const { host, port } = get('server')
+  app.listen(+port, host, () => {
+    logger.info(`API listening at ${host}:${port}`)
+  })
 }
 
 main()
