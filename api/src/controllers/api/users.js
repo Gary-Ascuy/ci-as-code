@@ -2,36 +2,21 @@ import express from 'express'
 
 import { data } from '../helpers'
 import { logger } from '../../logger'
-
-const db = {
-  users: {
-    '0': { id: '0', name: 'Gary Ascuy', role: 'Developer' }
-  }
-}
-
-function getId() {
-  const keys = Object.keys(db.users).map(key => +key)
-  const last = keys.sort().reverse()[0] || 0
-  return `${last + 1}`
-}
+const { allUsers, addUser, deleteUser } = import('../../services/users')
 
 export const users = express.Router()
-users.get('/', function(req, res, next) {
+users.get('/', (req, res) => {
   logger.info(`GET /api/users - User`)
-  res.send(data(Object.values(db.users)))
+  res.send(data(allUsers()))
 })
 
-users.post('/', function({ body: { id, name, role } }, res, next) {
+users.post('/', ({ body: { id, name, role } }, res) => {
   logger.info(`POST /api/users - User`)
   const user = { id, name, role }
-  user.id = id ? id : getId()
-  db.users[user.id] = user
-  res.send(data(user))
+  res.send(data(addUser(user)))
 })
 
-users.delete('/:id', function({ params: { id } }, res, next) {
+users.delete('/:id', ({ params: { id } }, res) => {
   logger.info(`DELETE /api/users - User`)
-  const user = db.users[id] || {}
-  delete db.users[id]
-  res.send(data(user))
+  res.send(data(deleteUser(id)))
 })

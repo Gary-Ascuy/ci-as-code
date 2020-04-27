@@ -5,7 +5,8 @@
   "description": "Continuous Integration as Code - Backend (API)",
   "main": "src/app.js",
   "scripts": {
-    "start": "node --es-module-specifier-resolution=node src/app.js",
+    "start:production": "node --es-module-specifier-resolution=node src/app.js",
+    "start": "nodemon --es-module-specifier-resolution=node src/app.js",
     "test": "jest"
   },
   "repository": {
@@ -31,5 +32,9 @@
     "express": "^4.17.1",
     "nconf": "^0.10.0",
     "winston": "^3.2.1"
+  },
+  "devDependencies": {
+    "jest": "^25.4.0",
+    "nodemon": "^2.0.3"
   }
 }

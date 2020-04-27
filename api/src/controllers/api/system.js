@@ -17,7 +17,7 @@ const osInfo = {
 }
 
 export const system = express.Router()
-system.get('/', function(req, res, next) {
+system.get('/', (req, res, next) => {
   logger.info(`GET /api/system - OS/Runtime info`)
   const node = process.versions
   res.send(data({ node, os: osInfo }))

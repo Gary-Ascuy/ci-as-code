@@ -7,7 +7,7 @@ const min = 16
 const max = 160
 
 export const random = express.Router()
-random.get('/', function(req, res, next) {
+random.get('/', (req, res) => {
   logger.info(`GET /api/random - Generating random number`)
   const value = min + Math.floor(Math.random() * (max - min))
   res.send(data({ min, max, value }))
