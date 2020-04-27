@@ -2,13 +2,11 @@ import express from 'express'
 
 import { get } from './settings'
 import { logger } from './logger'
+import { routes } from './routes'
 
 export async function main() {
   const app = express()
-
-  app.get('/', (req, res) => {
-    res.send('An alligator approaches!');
-  })
+  app.use(routes)
 
   const { host, port } = get('server')
   app.listen(+port, host, () => {
