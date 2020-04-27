@@ -1,7 +1,7 @@
 {
-  "name": "ui",
+  "name": "ciascode-ui",
   "version": "0.1.0",
-  "private": true,
+  "description": "Continuous Integration as Code - Frontend (UI)",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
@@ -16,6 +16,23 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@gitlab.com/gary.ascuy/ci-as-code-base.git"
+  },
+  "keywords": [
+    "api",
+    "ci",
+    "cd",
+    "backend",
+    "express"
+  ],
+  "author": "gary.ascuy@gmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://gitlab.com/gary.ascuy/ci-as-code-base/issues"
+  },
+  "homepage": "https://gitlab.com/gary.ascuy/ci-as-code-base#readme",
   "eslintConfig": {
     "extends": "react-app"
   },

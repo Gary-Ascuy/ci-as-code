@@ -1,9 +1,10 @@
 {
   "name": "ciascode-api",
-  "version": "0.0.1",
-  "description": "Continuous Integration as Code",
+  "version": "0.1.0",
+  "description": "Continuous Integration as Code - Backend (API)",
   "main": "src/app.js",
   "scripts": {
+    "start": "node src/app.js",
     "test": "jest"
   },
   "repository": {
