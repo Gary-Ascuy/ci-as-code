@@ -1,7 +1,7 @@
 import React from 'react'
 import { Image, Segment } from 'semantic-ui-react'
 
-export default function Gary() {
+export default function GaryAscuy() {
   return (
     <>
       <Image src='/profile/gary.ascuy.jpg' size='medium' circular centered />
