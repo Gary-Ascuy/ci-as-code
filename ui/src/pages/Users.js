@@ -4,7 +4,7 @@ import { Segment, Header, Dimmer, Loader, Image, Message } from 'semantic-ui-rea
 export function ErrorMessage({ error }) {
   return (
     <Dimmer className='page loading' inverted active>
-      <Image src='/assets/error.webp' size='medium' centered />
+      <Image src='/assets/error.png' size='medium' centered />
       <Message centered inverted color='red'>Oops, looks like your page died</Message>
     </Dimmer>
   )
