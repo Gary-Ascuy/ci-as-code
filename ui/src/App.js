@@ -1,26 +1,52 @@
 import React from 'react'
-import { Header, Icon, Image, Menu, Segment, Sidebar } from 'semantic-ui-react'
+import { Icon, Menu, Segment, Sidebar } from 'semantic-ui-react'
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom"
+
+import Home from './pages/Home'
+import Games from './pages/Games'
+import About from './pages/About'
+import Users from './pages/Users'
 
 export default function App() {
   return (
-    <Sidebar.Pushable as={Segment}>
-      <Sidebar as={Menu} icon='labeled' inverted vertical visible width='thin'>
-        <Menu.Item as='a'>
-          <Icon name='home' /> Home
-        </Menu.Item>
-        <Menu.Item as='a'>
-          <Icon name='gamepad' /> Games
-        </Menu.Item>
-        <Menu.Item as='a'>
-          <Icon name='camera' /> Channels
-        </Menu.Item>
-      </Sidebar>
-      <Sidebar.Pusher>
-        <Segment basic>
-          <Header as='h3'>Application Content</Header>
-          value contect
-        </Segment>
-      </Sidebar.Pusher>
-    </Sidebar.Pushable>
+    <Router>
+      <Sidebar.Pushable as={Segment}>
+        <Sidebar as={Menu} icon='labeled' inverted vertical visible width='thin'>
+          <Menu.Item as='a' href='/' >
+            <Icon name='home' /> Home
+          </Menu.Item>
+          <Menu.Item as='a' href='/games'>
+            <Icon name='gamepad' /> Games
+          </Menu.Item>
+          <Menu.Item as='a' href='/users'>
+            <Icon name='user secret' /> Users
+          </Menu.Item>
+          <Menu.Item as='a' href='/about'>
+            <Icon name='bolt' /> About
+          </Menu.Item>
+        </Sidebar>
+        <Sidebar.Pusher>
+          <Switch>
+            <Route path="/about">
+              <About />
+            </Route>
+            <Route path="/games">
+              <Games />
+            </Route>
+            <Route path="/users">
+              <Users />
+            </Route>
+            <Route path="/">
+              <Home />
+            </Route>
+          </Switch>
+        </Sidebar.Pusher>
+      </Sidebar.Pushable>
+    </Router>
   )
 }
