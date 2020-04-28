@@ -23,20 +23,18 @@ export default function Users() {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
 
-  useEffect(() => {
-    async function fetchData() {
-      try {
-        const { data } = await fetch('http://0.0.0.0:3666/api/users').then(res => res.json())
-        setUsers(data)
-      } catch (e) {
-        setError(e)
-      } finally {
-        setLoading(false)
-      }
+  async function fetchData() {
+    try {
+      const { data } = await fetch('http://0.0.0.0:3666/api/users').then(res => res.json())
+      setUsers(data)
+    } catch (e) {
+      setError(e)
+    } finally {
+      setLoading(false)
     }
+  }
 
-    fetchData()
-  }, [])
+  useEffect(() => fetchData(), [])
   if (error) return <ErrorMessage error={error} />
   if (loading) return <Loading />
   return (
