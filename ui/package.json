@@ -32,7 +32,6 @@
   "bugs": {
     "url": "https://gitlab.com/gary.ascuy/ci-as-code-base/issues"
   },
-  "homepage": "https://gitlab.com/gary.ascuy/ci-as-code-base#readme",
   "eslintConfig": {
     "extends": "react-app"
   },
