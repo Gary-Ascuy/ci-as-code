@@ -17,16 +17,16 @@ export default function App() {
     <Router>
       <Sidebar.Pushable as={Segment}>
         <Sidebar as={Menu} icon='labeled' inverted vertical visible width='thin'>
-          <Menu.Item as='a' href='/' >
+          <Menu.Item as={Link} to='/' >
             <Icon name='home' /> Home
           </Menu.Item>
-          <Menu.Item as='a' href='/games'>
+          <Menu.Item as={Link} to='/games'>
             <Icon name='gamepad' /> Games
           </Menu.Item>
-          <Menu.Item as='a' href='/users'>
+          <Menu.Item as={Link} to='/users'>
             <Icon name='user secret' /> Users
           </Menu.Item>
-          <Menu.Item as='a' href='/about'>
+          <Menu.Item as={Link} to='/about'>
             <Icon name='bolt' /> About
           </Menu.Item>
         </Sidebar>
