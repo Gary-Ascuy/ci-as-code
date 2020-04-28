@@ -1,7 +1,11 @@
-import React from 'react';
+import React from 'react'
+import { Segment, Header } from 'semantic-ui-react'
 
 export default function About() {
   return (
-    <div>ABOUT</div>
+    <Segment color='pink' tertiary padded basic>
+      <Header as='h3'>About</Header>
+      About this page
+    </Segment>
   )
 }

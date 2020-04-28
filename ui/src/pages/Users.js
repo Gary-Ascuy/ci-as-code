@@ -1,7 +1,11 @@
-import React from 'react';
+import React from 'react'
+import { Segment, Header } from 'semantic-ui-react'
 
 export default function Users() {
   return (
-    <div>USERS</div>
+    <Segment color='teal' tertiary padded basic>
+      <Header as='h3'>Users</Header>
+      Users page
+    </Segment>
   )
 }

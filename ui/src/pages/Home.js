@@ -1,14 +1,11 @@
-import React from 'react';
+import React from 'react'
+import { Segment, Header } from 'semantic-ui-react'
 
 export default function Home() {
   return (
-    <div>HOME</div>
+    <Segment color='orange' tertiary padded basic>
+      <Header as='h3'>Home</Header>
+      Home page
+    </Segment>
   )
 }
-
-
-          // <Segment basic>
-
-          //   <Header as='h3'>Application Content</Header>
-          //   value contect
-          // </Segment>

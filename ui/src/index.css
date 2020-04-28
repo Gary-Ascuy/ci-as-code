@@ -6,3 +6,11 @@
   border: 0;
   border-radius: 0px;
 }
+
+#root .pusher, #root .pusher .ui.segment {
+  height: 100%;
+}
+
+#root .pusher .ui.segment {
+  border-top-width: 5px !important;
+}
