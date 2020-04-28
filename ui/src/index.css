@@ -21,3 +21,14 @@
   width: 100% !important;
   border: 1px solid #80808045;
 }
+
+#root .pusher .page.loading {
+  width: calc(100% - 150px) !important;
+}
+
+#root .pusher .ui.red.message {
+  color: #f00;
+  font-weight: bold;
+  font-size: 16px;
+  font-style: italic;
+}

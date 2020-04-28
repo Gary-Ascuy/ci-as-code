@@ -2,7 +2,7 @@ import express from 'express'
 
 import { data } from '../helpers'
 import { logger } from '../../logger'
-const { allUsers, addUser, deleteUser } = import('../../services/users')
+import { allUsers, addUser, deleteUser } from '../../services/users'
 
 export const users = express.Router()
 users.get('/', (req, res) => {
