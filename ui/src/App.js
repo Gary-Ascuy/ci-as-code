@@ -1,24 +1,26 @@
 import React from 'react'
+import { Header, Icon, Image, Menu, Segment, Sidebar } from 'semantic-ui-react'
 
-function App() {
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Sidebar.Pushable as={Segment}>
+      <Sidebar as={Menu} icon='labeled' inverted vertical visible width='thin'>
+        <Menu.Item as='a'>
+          <Icon name='home' /> Home
+        </Menu.Item>
+        <Menu.Item as='a'>
+          <Icon name='gamepad' /> Games
+        </Menu.Item>
+        <Menu.Item as='a'>
+          <Icon name='camera' /> Channels
+        </Menu.Item>
+      </Sidebar>
+      <Sidebar.Pusher>
+        <Segment basic>
+          <Header as='h3'>Application Content</Header>
+          value contect
+        </Segment>
+      </Sidebar.Pusher>
+    </Sidebar.Pushable>
   )
 }
-
-export default App
