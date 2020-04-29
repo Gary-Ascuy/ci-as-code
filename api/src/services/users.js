@@ -5,13 +5,17 @@ const db = {
       id: '0',
       name: 'Gary Ascuy',
       email: 'gary.ascuy@gmail.com',
-      role: 'Developer',
+      role: 'Senior',
       bio: 'Gary Ascuy is a Senior Software Developer with 8+ years of experience, he likes Robotics',
       photo: '/assets/bots/15.svg',
       joined: '2016',
       friends: 0,
     }
   }
+}
+
+export function randomPic() {
+  return `/assets/bots/${Math.floor(Math.random() * 18)}.svg`
 }
 
 export function getId() {
@@ -25,7 +29,7 @@ export function allUsers() {
 }
 
 export function addUser({ id, name, email, role, bio, photo, joined, friends }) {
-  const user = { id, name, email, role, bio, photo, joined, friends }
+  const user = { id, name, email, role, bio, photo: photo || randomPic(), joined, friends }
   user.id = user.id ? user.id : getId()
   db.users[user.id] = user
   return user
