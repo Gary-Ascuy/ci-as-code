@@ -10,10 +10,9 @@ users.get('/', (req, res) => {
   res.send(data(allUsers()))
 })
 
-users.post('/', ({ body: { id, name, role } }, res) => {
+users.post('/', ({ body }, res) => {
   logger.info(`POST /api/users - User`)
-  const user = { id, name, role }
-  res.send(data(addUser(user)))
+  res.send(data(addUser(body)))
 })
 
 users.delete('/:id', ({ params: { id } }, res) => {
