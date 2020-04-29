@@ -1,22 +1,10 @@
 import React, { useEffect, useState } from 'react'
-import { Segment, Header, Dimmer, Loader, Image, Message } from 'semantic-ui-react'
+import { Segment, Header, Card } from 'semantic-ui-react'
 
-export function ErrorMessage({ error }) {
-  return (
-    <Dimmer className='page loading' inverted active>
-      <Image src='/assets/error.png' size='medium' centered />
-      <Message centered inverted color='red'>Oops, looks like your page died</Message>
-    </Dimmer>
-  )
-}
-
-export function Loading() {
-  return (
-    <Dimmer className='page loading' active>
-      <Loader content='Loading' />
-    </Dimmer>
-  )
-}
+import Loading from '../components/System/Loading'
+import ErrorMessage from '../components/System/ErrorMessage'
+import { buildUrl } from '../settings'
+import User from '../components/Users/User'
 
 export default function Users() {
   const [users, setUsers] = useState([])
@@ -25,7 +13,8 @@ export default function Users() {
 
   async function fetchData() {
     try {
-      const { data } = await fetch('http://0.0.0.0:3666/api/users').then(res => res.json())
+      const response = await fetch(buildUrl('/api/users'))
+      const { data } = await response.json()
       setUsers(data)
     } catch (e) {
       setError(e)
@@ -34,13 +23,15 @@ export default function Users() {
     }
   }
 
-  useEffect(() => fetchData(), [])
+  useEffect(() => { fetchData() }, [])
   if (error) return <ErrorMessage error={error} />
   if (loading) return <Loading />
   return (
     <Segment color='teal' tertiary padded basic>
       <Header as='h3'>Users</Header>
-      {users.map(user => <div key={user.id}>{user.name} - {user.role}</div>)}
+      <Card.Group doubling itemsPerRow={4}>
+        {users.map(user => <User user={user} key={user.id} />)}
+      </Card.Group>
     </Segment>
   )
 }
