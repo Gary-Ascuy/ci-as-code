@@ -11,6 +11,7 @@ users.get('/', (req, res) => {
 })
 
 users.post('/', ({ body }, res) => {
+  console.log(body, 'BODY')
   logger.info(`POST /api/users - User`)
   res.send(data(addUser(body)))
 })

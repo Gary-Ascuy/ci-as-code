@@ -4,6 +4,7 @@ const db = {
     '0': {
       id: '0',
       name: 'Gary Ascuy',
+      email: 'gary.ascuy@gmail.com',
       role: 'Developer',
       bio: 'Gary Ascuy is a Senior Software Developer with 8+ years of experience, he likes Robotics',
       photo: '/assets/bots/15.svg',
@@ -23,8 +24,8 @@ export function allUsers() {
   return Object.values(db.users)
 }
 
-export function addUser({ id, name, role, bio, photo, joined, friends }) {
-  const user = { id, name, role, bio, photo, joined, friends }
+export function addUser({ id, name, email, role, bio, photo, joined, friends }) {
+  const user = { id, name, email, role, bio, photo, joined, friends }
   user.id = user.id ? user.id : getId()
   db.users[user.id] = user
   return user
