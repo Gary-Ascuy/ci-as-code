@@ -19,7 +19,7 @@ export default function User({ user, removeUser }) {
         <Card.Description>{bio}</Card.Description>
       </Card.Content>
       <Card.Content extra>
-        <a><Icon name='user' /> {friends || 0} Friends</a>
+        <span><Icon name='user' /> {friends || 0} Friends</span>
         <Button style={{ float: 'right' }} circular icon='close'
           size='mini' inverted color='red'
           onClick={() => removeUser(id)} />
