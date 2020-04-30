@@ -1,5 +1,8 @@
-
 test:
   image: node:latest
+  before_script:
+    - cd ui
+    - yarn install
   script:
-    - echo 'Hello World - CI as Code'
+    - yarn lint
+    - yarn test
