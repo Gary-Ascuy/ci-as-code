@@ -1,0 +1,5 @@
+
+test:
+  image: node:latest
+  script:
+    - echo 'Hello World - CI as Code'
