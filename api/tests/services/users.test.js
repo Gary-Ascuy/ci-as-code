@@ -11,7 +11,7 @@ const user = {
   bio: 'bio',
   name: 'Test',
   role: 'Developer',
-  photo: '/assets/bots/9.svg'
+  photo: '/assets/bots/9.svg',
 }
 
 describe('services/users.js', () => {
