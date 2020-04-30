@@ -1,4 +1,4 @@
-test api:
+.test:
   image: node:latest
   before_script:
     - cd api
@@ -7,11 +7,10 @@ test api:
     - yarn lint
     - yarn test
 
+test api:
+  extends: .test
+  variables: { PROJECT_PATH: api }
+
 test ui:
-  image: node:latest
-  before_script:
-    - cd ui
-    - yarn install
-  script:
-    - yarn lint
-    - yarn test
+  extends: .test
+  variables: { PROJECT_PATH: api }
