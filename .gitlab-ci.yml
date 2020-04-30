@@ -1,7 +1,7 @@
 .test:
   image: node:latest
   before_script:
-    - cd api
+    - cd $PROJECT_PATH
     - yarn install
   script:
     - yarn lint
