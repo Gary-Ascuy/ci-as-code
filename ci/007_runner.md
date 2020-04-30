@@ -14,7 +14,7 @@ $ export TOKEN=<TOKEN FROM GITLAB>
 
 $ docker run --rm -it -v $(pwd):/etc/gitlab-runner \
     gitlab/gitlab-runner register \
-    --non-interactive --name traveler-ci \
+    --non-interactive --name ci-as-code \
     --url https://gitlab.com --registration-token "$TOKEN" \
     --executor docker --docker-image docker:lastest \
     --docker-volumes "/var/run/docker.sock:/var/run/docker.sock" --docker-volumes "/cache"
