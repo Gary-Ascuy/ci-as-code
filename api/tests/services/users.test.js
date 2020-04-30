@@ -1,5 +1,18 @@
 import { equal, deepEqual } from 'assert'
-import { getId, allUsers, addUser, deleteUser } from '../../src/services/users'
+import {
+  getId, allUsers, addUser, deleteUser,
+} from '../../src/services/users'
+
+const user = {
+  id: '1',
+  email: 'gary@gmail.com',
+  friends: 0,
+  joined: 0,
+  bio: 'bio',
+  name: 'Test',
+  role: 'Developer',
+  photo: '/assets/bots/9.svg'
+}
 
 describe('services/users.js', () => {
   describe('.getId()', () => {
@@ -18,13 +31,9 @@ describe('services/users.js', () => {
 
   describe('.addUser()', () => {
     it('Should add 2 elements with diferent data', () => {
-      const first = addUser({ name: 'Test', role: 'Developer' })
-      deepEqual(first, { id: 1, name: 'Test', role: 'Developer' })
+      const first = addUser(user)
+      deepEqual(first, user)
       equal(allUsers().length, 2)
-
-      const actual = addUser({ name: 'Test', role: 'Developer' })
-      deepEqual(actual, { id: 2, name: 'Test', role: 'Developer' })
-      equal(allUsers().length, 3)
     })
   })
 

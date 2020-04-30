@@ -1,7 +1,7 @@
-export function data(data, error) {
+export function data(value, error) {
   if (error) {
-    return { code: 500, error, data }
+    return { code: 500, error, data: value }
   }
 
-  return { code: 200, data }
+  return { code: 200, data: value }
 }

@@ -1,7 +1,7 @@
 // fake database for user
 const db = {
   users: {
-    '0': {
+    0: {
       id: '0',
       name: 'Gary Ascuy',
       email: 'gary.ascuy@gmail.com',
@@ -10,8 +10,8 @@ const db = {
       photo: '/assets/bots/15.svg',
       joined: '2016',
       friends: 0,
-    }
-  }
+    },
+  },
 }
 
 export function randomPic() {
@@ -19,7 +19,7 @@ export function randomPic() {
 }
 
 export function getId() {
-  const keys = Object.keys(db.users).map(key => +key)
+  const keys = Object.keys(db.users).map((key) => +key)
   const last = keys.sort().reverse()[0] || 0
   return `${last + 1}`
 }
@@ -28,8 +28,12 @@ export function allUsers() {
   return Object.values(db.users)
 }
 
-export function addUser({ id, name, email, role, bio, photo, joined, friends }) {
-  const user = { id, name, email, role, bio, photo: photo || randomPic(), joined, friends }
+export function addUser({
+  id, name, email, role, bio, photo, joined, friends,
+}) {
+  const user = {
+    id, name, email, role, bio, photo: photo || randomPic(), joined, friends,
+  }
   user.id = user.id ? user.id : getId()
   db.users[user.id] = user
   return user

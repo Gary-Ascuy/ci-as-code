@@ -8,10 +8,16 @@
     "start:production": "node --es-module-specifier-resolution=node src/app.js",
     "start": "nodemon --es-module-specifier-resolution=node src/app.js",
     "test": "jest",
-    "lint": "eslint"
+    "lint": "eslint ."
+  },
+  "babel": {
+    "presets": ["@babel/preset-env"],
+    "plugins": []
   },
   "jest": {
-    "verbose": true
+    "transform": {
+      "^.+\\.[t|j]sx?$": "babel-jest"
+    }
   },
   "repository": {
     "type": "git",
@@ -34,10 +40,18 @@
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
     "express": "^4.17.1",
+    "lodash": "^4.17.15",
     "nconf": "^0.10.0",
     "winston": "^3.2.1"
   },
   "devDependencies": {
+    "@babel/core": "^7.9.6",
+    "@babel/preset-env": "^7.9.6",
+    "babel-jest": "^25.5.1",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.1.0",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-jest": "^23.8.2",
     "jest": "^25.4.0",
     "nodemon": "^2.0.3"
   }

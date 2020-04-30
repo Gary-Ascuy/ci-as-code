@@ -6,16 +6,16 @@ import { allUsers, addUser, deleteUser } from '../../services/users'
 
 export const users = express.Router()
 users.get('/', (req, res) => {
-  logger.info(`GET /api/users - User`)
+  logger.info('GET /api/users - User')
   res.send(data(allUsers()))
 })
 
 users.post('/', ({ body }, res) => {
-  logger.info(`POST /api/users - User`)
+  logger.info('POST /api/users - User')
   res.send(data(addUser(body)))
 })
 
 users.delete('/:id', ({ params: { id } }, res) => {
-  logger.info(`DELETE /api/users - User`)
+  logger.info('DELETE /api/users - User')
   res.send(data(deleteUser(id)))
 })

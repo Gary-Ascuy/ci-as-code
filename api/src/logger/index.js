@@ -10,7 +10,7 @@ export const logger = winston.createLogger({
       format: winston.format.combine(
         winston.format.colorize(),
         winston.format.simple(),
-      )
+      ),
     }),
-  ]
+  ],
 })
