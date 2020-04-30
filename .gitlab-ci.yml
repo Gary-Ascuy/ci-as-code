@@ -13,4 +13,4 @@ test api:
 
 test ui:
   extends: .test
-  variables: { PROJECT_PATH: api }
+  variables: { PROJECT_PATH: ui }
