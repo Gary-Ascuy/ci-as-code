@@ -14,16 +14,33 @@ export default function User({ user, removeUser }) {
         <Card.Meta>
           <div style={{ fontWeight: 'bold' }}>{role}</div>
           {email ? <div style={{ fontStyle: 'italic' }}>{email}</div> : ''}
-          {joined ? <div style={{ fontStyle: 'italic' }}>Joined in {joined}</div> : ''}
+          {joined ? (
+            <div style={{ fontStyle: 'italic' }}>
+              Joined in
+              {joined}
+            </div>
+          ) : ''}
         </Card.Meta>
         <Card.Description>{bio}</Card.Description>
       </Card.Content>
       <Card.Content extra>
-        <span><Icon name='user' /> {friends || 0} Friends</span>
-        <Button style={{ float: 'right' }} circular icon='close'
-          size='mini' inverted color='red'
-          onClick={() => removeUser(id)} />
+        <span>
+          <Icon name="user" />
+          {' '}
+          {friends || 0}
+          {' '}
+          Friends
+        </span>
+        <Button
+          style={{ float: 'right' }}
+          circular
+          icon="close"
+          size="mini"
+          inverted
+          color="red"
+          onClick={() => removeUser(id)}
+        />
       </Card.Content>
-    </Card >
+    </Card>
   )
 }

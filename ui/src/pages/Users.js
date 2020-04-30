@@ -28,10 +28,12 @@ export default function Users() {
   async function addUser(user) {
     try {
       setLoading(true)
-      const response = await fetch(buildUrl(`/api/users`), {
-        method: 'POST', headers: {
-          'Content-Type': 'application/json'
-        }, body: JSON.stringify(user)
+      const response = await fetch(buildUrl('/api/users'), {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(user),
       })
       await response.json()
       await fetchData()
@@ -59,15 +61,21 @@ export default function Users() {
   if (error) return <ErrorMessage error={error} />
   if (loading) return <Loading />
   return (
-    <Segment style={{ overflow: 'auto' }} color='teal' tertiary padded basic>
-      <Header as='h3'>Users</Header>
-      <Button style={{ position: 'absolute', top: '20px', right: '20px' }}
-        circular size='tiny' color='green' inverted icon='add'
-        onClick={() => setVisible(!visible)}></Button>
+    <Segment style={{ overflow: 'auto' }} color="teal" tertiary padded basic>
+      <Header as="h3">Users</Header>
+      <Button
+        style={{ position: 'absolute', top: '20px', right: '20px' }}
+        circular
+        size="tiny"
+        color="green"
+        inverted
+        icon="add"
+        onClick={() => setVisible(!visible)}
+      />
 
       {visible ? <Segment padded basic><NewUser addUser={addUser} /></Segment> : ''}
       <Card.Group doubling itemsPerRow={4}>
-        {users.map(user => <User user={user} removeUser={removeUser} key={user.id} />)}
+        {users.map((user) => <User user={user} removeUser={removeUser} key={user.id} />)}
       </Card.Group>
     </Segment>
   )
