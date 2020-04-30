@@ -43,4 +43,4 @@ deploy:
     - echo 'SOMETHING'
     - cat .env
     - docker-compose down
-    - BACKEND_API_BASE_URL=http://ciascode.ascuy.me:3666 docker-compose up -d
+    - docker-compose up -d
