@@ -10,7 +10,7 @@ $ docker pull node:latest
 ```
 
 ```sh
-$ export TOKEN=rqPiybFQX3VL9HxGCsaV
+$ export TOKEN=<TOKEN FROM GITLAB>
 
 $ docker run --rm -it -v $(pwd):/etc/gitlab-runner \
     gitlab/gitlab-runner register \
