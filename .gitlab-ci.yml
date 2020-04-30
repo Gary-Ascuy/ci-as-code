@@ -1,7 +1,7 @@
 test:
   image: node:latest
   before_script:
-    - cd ui
+    - cd api
     - yarn install
   script:
     - yarn lint
