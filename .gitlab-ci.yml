@@ -1,4 +1,4 @@
-test:
+test api:
   image: node:latest
   before_script:
     - cd api
@@ -7,7 +7,7 @@ test:
     - yarn lint
     - yarn test
 
-test:
+test ui:
   image: node:latest
   before_script:
     - cd ui
