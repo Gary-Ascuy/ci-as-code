@@ -1,0 +1,16 @@
+.test:
+  image: node:latest
+  before_script:
+    - cd $PROJECT_PATH
+    - yarn install
+  script:
+    - yarn lint
+    - yarn test
+
+test api:
+  extends: .test
+  variables: { PROJECT_PATH: api }
+
+test ui:
+  extends: .test
+  variables: { PROJECT_PATH: ui }
