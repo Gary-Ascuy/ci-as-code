@@ -11,5 +11,7 @@ services:
     image: $CI_REGISTRY_IMAGE/ui:$UI_VERION
     build: ./ui
     container_name: ui
+    environment:
+      BACKEND_API_BASE_URL: http://ciascode.ascuy.me:3666
     ports:
       - "80:80"

@@ -20,20 +20,20 @@ stages:
   before_script:
     - echo "$CI_REGISTRY_PASSWORD" | docker login -u "$CI_REGISTRY_USER" --password-stdin $CI_REGISTRY
 
-# test api:
-#   extends: .test
-#   variables: { PROJECT_PATH: api }
+test api:
+  extends: .test
+  variables: { PROJECT_PATH: api }
 
-# test ui:
-#   extends: .test
-#   variables: { PROJECT_PATH: ui }
+test ui:
+  extends: .test
+  variables: { PROJECT_PATH: ui }
 
-# build:
-#   extends: .docker
-#   stage: build
-#   script:
-#     - docker-compose build
-#     - docker-compose push
+build:
+  extends: .docker
+  stage: build
+  script:
+    - docker-compose build
+    - docker-compose push
 
 deploy:
   extends: .docker
