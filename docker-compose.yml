@@ -1,0 +1,15 @@
+version: "3.8"
+services:
+  api:
+    image: $CI_REGISTRY_IMAGE/api:$API_VERION
+    build: ./api
+    container_name: api
+    ports:
+      - "3666:3666"
+
+  ui:
+    image: $CI_REGISTRY_IMAGE/ui:$UI_VERION
+    build: ./ui
+    container_name: ui
+    ports:
+      - "80:80"
