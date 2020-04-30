@@ -1,0 +1,33 @@
+# stages:
+#   - test
+#   - build
+#   - deploy
+
+# .test:
+#   image: node:latest
+#   stage: test
+#   before_script:
+#     - cd $PROJECT_PATH
+#     - yarn install
+#   script:
+#     - yarn lint
+#     - yarn test
+
+# test api:
+#   extends: .test
+#   variables: { PROJECT_PATH: api }
+
+# test ui:
+#   extends: .test
+#   variables: { PROJECT_PATH: ui }
+
+build:
+  image: docker/compose:latest
+  # stage: build
+  services:
+    - docker:dind
+  before_script:
+    - echo "$CI_REGISTRY_PASSWORD" | docker login -u "$CI_REGISTRY_USER" --password-stdin $CI_REGISTRY
+  script:
+    - docker-compose build
+    - docker-compose push

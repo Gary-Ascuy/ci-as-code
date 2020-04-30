@@ -13,13 +13,6 @@ stages:
     - yarn lint
     - yarn test
 
-.docker:
-  image: docker/compose:latest
-  services:
-    - docker:dind
-  before_script:
-    - echo "$CI_REGISTRY_PASSWORD" | docker login -u "$CI_REGISTRY_USER" --password-stdin $CI_REGISTRY
-
 test api:
   extends: .test
   variables: { PROJECT_PATH: api }
@@ -29,15 +22,23 @@ test ui:
   variables: { PROJECT_PATH: ui }
 
 build:
-  extends: .docker
+  image: docker/compose:latest
   stage: build
+  services:
+    - docker:dind
+  before_script:
+    - echo "$CI_REGISTRY_PASSWORD" | docker login -u "$CI_REGISTRY_USER" --password-stdin $CI_REGISTRY
   script:
     - docker-compose build
     - docker-compose push
 
 deploy:
-  extends: .docker
+  image: docker/compose:latest
   stage: deploy
+  services:
+    - docker:dind
+  before_script:
+    - echo "$CI_REGISTRY_PASSWORD" | docker login -u "$CI_REGISTRY_USER" --password-stdin $CI_REGISTRY
   script:
     - docker-compose down
     - docker-compose up -d
