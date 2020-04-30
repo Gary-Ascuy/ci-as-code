@@ -1,0 +1,9 @@
+
+test:
+  image: node:latest
+  before_script:
+    - cd ui
+    - yarn install
+  script:
+    - yarn lint
+    - yarn test
