@@ -34,6 +34,8 @@ build:
   script:
     - docker-compose build
     - docker-compose push
+  only:
+    - develop
 
 deploy:
   extends: .docker
@@ -42,3 +44,5 @@ deploy:
   script:
     - docker-compose down
     - docker-compose up -d
+  only:
+    - develop

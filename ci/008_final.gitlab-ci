@@ -34,12 +34,15 @@ build:
   script:
     - docker-compose build
     - docker-compose push
+  only:
+    - develop
 
 deploy:
   extends: .docker
   stage: deploy
-  variables:
-    BACKEND_API_BASE_URL: http://ciascode.ascuy.me:3666
+  variables: { BACKEND_API_BASE_URL: 'http://ciascodebase.ascuy.me:3666' }
   script:
     - docker-compose down
     - docker-compose up -d
+  only:
+    - develop
