@@ -1,6 +1,24 @@
 # GitLab CI - Runner
 
-# Setup Runner
+### Setup Docker & Docker Compose
+
+```sh
+$ mkdir software && cd software/
+$ curl -fsSL https://get.docker.com -o get-docker.sh
+$ sh get-docker.sh
+$ sudo usermod -aG docker root # to avoid use sudo all the time
+
+$ sudo curl -L "https://github.com/docker/compose/releases/download/1.25.5/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+$ sudo chmod +x /usr/local/bin/docker-compose
+```
+
+```sh
+# Test Docker Compose and Docker
+$ docker --version
+$ docker-compose --version
+```
+
+### Setup Runner
 
 ```sh
 $ docker pull gitlab/gitlab-runner:latest
